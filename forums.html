@@ -1,0 +1,178 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <style>
+        head {
+                background-image: url('Images/bgcool.gif'); /* Change 'path/to/your/image.jpg' to the path of your image */
+                background-repeat: repeat;
+        }
+        
+        body {
+            transform: scale(1); /* Adjust the scale factor as needed */
+            transform-origin: 0 0;
+            image-rendering: pixelated;
+            background-color: black;
+            color: rgb(0, 255, 132);
+            font-family: serif;
+            margin: 0;
+            padding: 0;
+            text-align: left; 
+            background-image: url('Images/twinklespace2.gif'); /* Change 'path/to/your/image.jpg' to the path of your image */
+            background-repeat: repeat;
+        }
+
+        .forum-section {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 200px; /* Adjust the distance from the top */
+            margin-bottom: 100px;
+            width: 50%;
+            max-width: 600px; /* Maximum width of 600 pixels */
+            overflow: hidden;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+            width: 100%;
+            color:#c108ff
+        }
+
+        table td {
+            border: 1px solid #fff;
+            padding: 10px;
+        }
+
+        table td:first-child {
+            width: 30%;
+            text-align: right; /* Align the first column content to the right */
+        }
+
+        table td:nth-child(2) {
+            width: 70%;
+            text-align: left; /* Align the second column content to the left */
+        }
+
+        #new-discussion {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            width: 80%;
+            max-width: 600px; /* Maximum width of 600 pixels */
+            overflow: hidden;
+        }
+
+        .forum-info {
+            width: 80%;
+            max-width: 600px; /* Maximum width of 600 pixels */
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Windows 98 style border for form submission boxes */
+        input[type="text"],
+        input[type="text"]:focus,
+        textarea,
+        textarea:focus {
+            border: 1px solid #5a5a5a;
+            border-left: 3px solid #c9c9c9;
+            border-top: 3px solid #c9c9c9;
+            background-color: #ffffff;
+            padding: 5px;
+            margin-bottom: 5px;
+            font-family: serif;
+            font-size: 14px;
+            color: #000000;
+            width: 100%;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            padding: 5px;
+            margin: 5px 0;
+            border: 2px outset #888;
+            background: #ccc;
+            color: black;
+            font-family: serif;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header style="background: #00000000  no-repeat center center; background-size: cover; color: #fff; padding-top: 30px; min-height: 120px; border-bottom: #1aff0000 3px solid; text-align: center;width: 80%; max-width: 600px; margin: auto;">
+        <!-- Header Section -->
+        <img src="Images/knighttv.gif" width= "530" style="display: block; margin: 20 auto; transform: rotate(180deg);">
+        <img src="Images/TheVideoNexus.gif" width= "450" style="display: block; margin: 0 auto;">
+        <img src="Images/knighttv.gif " width= "530" style="display: block; margin: 20 auto;">
+    </header>
+
+    <!-- Comment Section -->
+    <div class="forum-section">
+        <div class="messageboard-title">
+            <img src="Images/Cool_Message_Board.gif" width= "300" style="display: block; margin: 0 auto;">
+            <big><h2 style="text-align: center;color:aqua"></h2></big>
+            <hr style="border: none; border-top: 2px dotted #fff; margin: 20px 0;">
+            <div class="discussion-post">
+                <big><h3>Subject</h3></big>
+                <p>Description Content: This is a silly little placeholder text that is here to strickly make formating easier and brighten your day :)</p>
+            </div>
+        </div>    
+    </div>
+
+    <!-- New discussion -->
+    <div id="new-discussion">
+        <table cellspacing="10" cellpadding="10" style="border-collapse: collapse; width: 600px;">
+            <tr>
+                <td style="width: 30%; border: 1px solid #fff; padding: 10px; text-align: center;">
+                    <h2 style="font-size: 1.5em; margin: 0;">Create new message</h2>
+                </td>
+                <td style="width: 70%; border: 1px solid #fff; padding: 10px; text-align: left;">
+                    <form id="new-post-form" style="margin: 0;">
+                        <input style="padding: 5px;" type="text" id="username" placeholder="Name" required>
+                        <input type="text" id="discussion title" placeholder="Subject" required>
+                        <br>
+                        <textarea id="content" placeholder="Your post" required style="height: 100px;"></textarea>
+                        <br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Forum Info -->
+    <div class="forum-info">
+        <span><u>X</u> Posts in <u>48</u></span><br>
+        <span>Latest post: <b><a href="#" style="color: white; text-decoration: none;">We're moving!</a></b> on Dec 15 1999 By <a href="#" style="color: white; text-decoration: none;">ElecTRa</a></span>.<br>
+    </div>
+
+    <!-- Footer -->
+    <footer></footer>
+    <!-- Error Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("new-post-form");
+            const postsContainer = document.getElementById("posts");
+    
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                
+                const username = document.getElementById("username").value;
+                const content = document.getElementById("content").value;
+                const timestamp = new Date().toLocaleString();
+    
+                // Display error message
+                const errorElement = document.createElement("div");
+                errorElement.textContent = "An error has occurred, server not reached";
+                errorElement.style.color = "red";
+                form.replaceWith(errorElement);
+            });
+        });
+    </script>
+</body>
+</html>

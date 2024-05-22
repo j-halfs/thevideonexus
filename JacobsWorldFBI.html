@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seized Website</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: "Times New Roman", serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 36px;
+            color: #ff0000;
+        }
+        h2 {
+            font-size: 24px;
+            color: #000000;
+        }
+        p {
+            font-size: 16px;
+            text-align: center;
+        }
+        .fbi-seizure {
+            border: 10px solid #ff0000;
+            padding: 20px;
+            width: 600px;
+            text-align: center;
+            margin-top: 10px;
+            
+            background-color: #000000;
+        }
+        .fbi-seizure h3 {
+            font-size: 20px;
+            color: #ff0000;
+        }
+        .fbi-seizure p {
+            font-size: 16px;
+            color: #ff0000;
+            text-align: center;
+        }
+
+        bodyLogin {
+            background-color: #C0C0C0;
+            font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+            color: #000000;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .containerLogin {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 2px solid #000000;
+            background-color: #FFFFFF;
+        }
+        .containerLogin h1 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 2px solid #808080;
+            font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+            font-size: 14px;
+        }
+        button {
+            width: calc(100% - 10px);
+            padding: 5px;
+            background-color: #C0C0C0;
+            border: 2px outset #808080;
+            font-family: 'MS Sans Serif', 'Microsoft Sans Serif', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        button:active {
+            border: 2px inset #808080;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="seal" style="margin: 30px auto 0 auto; text-align: center;">
+        <img src="Images/FBIseal.png" alt="FBI Logo" width="225">
+    </div>
+    <div class="fbi-seizure" style="text-align: center; margin: 0 auto; width: 600px; margin-top: 40px;">
+        <h1>THIS WEBSITE HAS BEEN SEIZED</h1>
+        <p>
+            This domain has been seized by the Federal Bureau of Investigation (FBI) in accordance with a seizure warrant obtained by the United States Attorney's Office.
+         </p>
+         <p>
+             The site is part of an ongoing investigation into cybercriminal activities and has been taken down to prevent further malicious actions.
+         </p>
+        <p>
+             Any attempt to access or use the contents of this site will result in legal action.
+        </p>
+     </div>
+     
+     <div class="containerLogin">
+        <h1>FEDERAL ACCESS ONLY</h1>
+        <form id="loginForm" onsubmit="return validateForm()">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <script src="credentials.js"></script>
+    <script>
+        function validateForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === validUsername && password === validPassword) {
+                window.location.href = 'https://example.com'; // Replace with the desired hyperlink
+                return false;
+            } else {
+                alert('Incorrect username or password.');
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
