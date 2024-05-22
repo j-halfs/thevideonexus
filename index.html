@@ -143,15 +143,43 @@
          button:hover {
         background-color: #a0a0a0;
         }
+    <img {
+            display: block;
+            cursor: default; /* No hover indication */
+        }
+        
     </style>
 </head>
 <body>
     <header style="background: #00000000 no-repeat center center; background-size: cover; color: #fff; padding-top: 30px; min-height: 120px; border-bottom: #1aff0000 3px solid; text-align: center; width: 80%; max-width: 600px; margin: auto;">
         <!-- Header Section -->
         <img src="Images/knighttv.gif" width="530" style="display: block; margin: 20px auto; transform: rotate(180deg);">
-        <img src="Images/TheVideoNexus.gif" width="450" style="display: block; margin: 0 auto;">
+        <img src="Images/TheVideoNexus.gif" width="450" style="display: block; margin: 0 auto;" id="directory">
         <img src="Images/knighttv.gif" width="530" style="display: block; margin: 20px auto;">
     </header>
+
+    <script>
+        (function() {
+            let clickCount = 0;
+            const maxClicks = 3;
+            const resetTime = 1000; 
+            const targetUrl = "CeleronDirectory.html"; 
+
+            const secretImage = document.getElementById('directory');
+
+            secretImage.addEventListener('click', function() {
+                clickCount++;
+
+                if (clickCount === maxClicks) {
+                    window.location.href = targetUrl;
+                }
+
+                setTimeout(function() {
+                    clickCount = 0;
+                }, resetTime);
+            });
+        })();
+    </script>
 
     <!--Welcome Section-->
     <div class="welcome-section">
